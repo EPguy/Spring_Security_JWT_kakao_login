@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lol.duogo.user.mapper.UserMapper">
+    <select id="findById" resultType="com.lol.duogo.user.dto.UserDto" parameterType="java.lang.Long">
+        SELECT * FROM tb_user WHERE id=#{id}
+    </select>
+
+    <select id="findByRefreshToken" resultType="com.lol.duogo.user.dto.UserDto" parameterType="java.lang.String">
+        SELECT * FROM tb_user WHERE refresh_token = #{refreshToken}
+    </select>
+
+    <insert id="save" parameterType="com.lol.duogo.user.dto.UserDto">
+        INSERT tb_user (id, email, platform, refresh_token) VALUES (#{id}, #{email}, #{platform}, #{refreshToken})
+    </insert>
+
+    <update id="update" parameterType="com.lol.duogo.user.dto.UserDto">
+        UPDATE tb_user SET email = #{email}, platform = #{platform} WHERE id = #{id}
+    </update>
+
+    <update id="updateRefreshToken" parameterType="com.lol.duogo.user.dto.UserDto">
+        UPDATE tb_user SET refresh_token = #{refreshToken} WHERE id = #{id}
+    </update>
+</mapper>
