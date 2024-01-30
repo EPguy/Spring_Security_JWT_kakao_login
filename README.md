@@ -4,6 +4,7 @@
 - Spring Security
 - JWT(Access, Refresh Token)
 - Kakao Login
+- MyBatis
 
 블로그
 - https://epguy.tistory.com/22
